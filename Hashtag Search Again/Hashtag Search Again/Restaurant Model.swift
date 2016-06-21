@@ -17,6 +17,18 @@ class Restaurant: SearchableObject {
     let state: String
     var reviews: [Review] = []
     
+    
+    var hashtags: [String] {
+        var hashtagsArray: [String] = []
+        for i in reviews {
+            for hashtag in i.hashtags{
+                hashtagsArray.append(hashtag)
+            }
+        }
+        
+        return hashtagsArray
+    }
+
     init(name: String, streetAddress: String, city: String, state: String, reviews: [Review] = []) {
         
         self.name = name
@@ -36,7 +48,7 @@ var restaurants = ["Luca's", "Il Cortile", "Javier's","La Palmera", "Roger's", "
 
 var restaurant1 = Restaurant(name: "Il Cortile", streetAddress: "125 Mulberry St", city: ", New York City", state: "New York")
 
-var review1 = Review(username: "TheGodfather1978", text: "try the veal, it's the best in the city. #badabing #noDispiace #sleepWithTheFishes")
+var review1 = Review(username: "TheGodfather1972", text: "try the veal, it's the best in the city. #badabing #noDispiace #sleepWithTheFishes")
 
 
 protocol SearchableObject {
